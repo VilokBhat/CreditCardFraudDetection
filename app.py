@@ -130,12 +130,13 @@ load_dotenv()
 app = Flask(__name__)
 
 # Load the trained model
-logistic_regression_model = joblib.load('models/LogisticRegression_model.pkl')
-random_forest_model = joblib.load('models/RandomForest_model.pkl')
-xgboost_model = joblib.load('models/XGBoost_model.pkl')
-
-# Load the trained scaler
-scaler = joblib.load('models/scaler.pkl')
+try:
+    logistic_regression_model = joblib.load('models/LogisticRegression_model.pkl')
+    random_forest_model = joblib.load('models/RandomForest_model.pkl')
+    #xgboost_model = joblib.load('models/XGBoost_model.pkl')
+    scaler = joblib.load('models/scaler.pkl')
+except Exception as e:
+    print(f"Error loading models or scaler: {e}")
 
 # define the risk category based on the fraud probability
 def risk_category(probability):
