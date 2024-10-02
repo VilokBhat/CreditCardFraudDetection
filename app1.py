@@ -4,7 +4,7 @@ import joblib
 from sklearn.preprocessing import StandardScaler
 
 # Load the saved model and scaler
-model = joblib.load('models/fraud_detection_model.pkl')
+model = joblib.load('models/RandomForest_model.pkl')
 scaler = joblib.load('models/scaler.pkl')
 
 # Title for the Streamlit app

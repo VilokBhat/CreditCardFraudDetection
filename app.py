@@ -177,7 +177,7 @@ def predict():
         model = random_forest_model
         model_name = 'Random Forest'
     else:
-        model = xgboost_model
+        #model = xgboost_model
         model_name = 'XGBoost'
 
     # Make prediction using the trained model
