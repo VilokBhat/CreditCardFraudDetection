@@ -48,7 +48,7 @@ def plot_and_log_roc_curve(model, X_test, y_test, model_name):
     plt.title(f"ROC Curve for {model_name} (AUC = {roc_auc:.2f})")
 
     # Save the plot
-    plt_path = f"models/{model_name}_roc_curve.png"
+    plt_path = f"models/{model_name}_roc_curve10000.png"
     plt.savefig(plt_path)
     plt.close()
 
@@ -72,7 +72,7 @@ def train_and_evaluate_model(model_name, model, X_train, y_train, X_test, y_test
 
         # Train on the full training set and log the model
         model.fit(X_train, y_train)
-        mlflow.sklearn.log_model(model, f"{model_name}_model")
+        mlflow.sklearn.log_model(model, f"{model_name}_model10000")
         
         # Make predictions on the test set
         y_pred = model.predict(X_test)
@@ -89,12 +89,12 @@ def train_and_evaluate_model(model_name, model, X_train, y_train, X_test, y_test
         plot_and_log_roc_curve(model, X_test, y_test, model_name)
         
         # Save the model locally
-        joblib.dump(model, f"models/{model_name}_model.pkl")
-        print(f"{model_name} model saved to 'models/{model_name}_model.pkl' with avg accuracy: {avg_score:.4f}")
+        joblib.dump(model, f"models/{model_name}_model10000.pkl")
+        print(f"{model_name} model saved to 'models/{model_name}_model10000.pkl' with avg accuracy: {avg_score:.4f}")
 
 def main(cv_type='KFold', n_splits=5):
     # Load and preprocess the data
-    data = load_and_preprocess('data/raw/creditcard.csv')
+    data = load_and_preprocess('data/raw/balanced_creditcard_10000.csv')
     
     # Split the data into features (X) and target (y)
     X = data.drop('Class', axis=1)
