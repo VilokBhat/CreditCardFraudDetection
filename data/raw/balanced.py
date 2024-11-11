@@ -11,7 +11,7 @@ df_majority = df[df.Class == 0]
 df_minority = df[df.Class == 1]
 
 # Determine the number of entries per class for a balanced dataset
-entries_per_class = 10000 // 2
+entries_per_class = 2500 // 2
 
 # Downsample majority class
 df_majority_downsampled = resample(df_majority, 
@@ -32,6 +32,6 @@ df_balanced = pd.concat([df_majority_downsampled, df_minority_upsampled])
 df_balanced = df_balanced.sample(frac=1).reset_index(drop=True)
 
 # Save to CSV (optional)
-df_balanced.to_csv('D:/MSIS/CreditCardFraudDetection/data/raw/balanced_creditcard_10000.csv', index=False)
+df_balanced.to_csv('D:/MSIS/CreditCardFraudDetection/data/raw/balanced_creditcard_2500.csv', index=False)
 
 print(df_balanced['Class'].value_counts())
