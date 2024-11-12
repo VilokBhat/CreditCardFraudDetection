@@ -10,14 +10,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-image: linear-gradient(to right top, #051937, #123560, #1c538c, #1e74ba, #1298eb);
     padding: 20px;
 }
 
 .container {
     max-width: 600px;
     width: 100%;
-    background-color: #fff;
+    background-color: lightblue;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px;
